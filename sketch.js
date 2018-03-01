@@ -1,32 +1,31 @@
-var block;
-var deltaSpeed = 10;
+var ship;
+var deltaSpeed = 1;
+
 
 function setup() {
 	createCanvas(400, 400);
-	block = new Block();
-	frameRate(10);
+	ship = new Ship(0,height/2);
 }
 
 function draw() {
 	background(51);
-	block.updateBlock();
-	block.showBlock();
-	
-	
+
+	translate(-ship.x,0);
+
+	ship.updateShip();
+	ship.showShip(10,10);
+
+	fill(0);
+	rect(300,height-50,50,50);
+	 
+	for (let i = 0; i < 20; i++){
+		fill(0);
+		rect(300 * i,height-50,50,50);
+	}
 }
 
 function keyPressed() {
-	if (keyCode === LEFT_ARROW) {
-		block.direction(-1,0);
-
-	} else if (keyCode === RIGHT_ARROW) {
-		block.direction(1,0);
-	  
-	} else if (keyCode === UP_ARROW){
-		block.direction(0,-1);
-
-	}else if (keyCode === DOWN_ARROW){
-		block.direction(0,1);
-
-  }
+	if (keyCode === RIGHT_ARROW) {
+		ship.direction(1,0);
+	} 
 }
