@@ -5,7 +5,6 @@ var deltaSpeed = 0;;
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	ship = new Ship();
-
 }
 
 function draw() {
@@ -22,6 +21,8 @@ function draw() {
 	for (let i = 0; i < 2000; i++){
 		fill(0);
 		rect(300 * i,height-50,50,50);
+		console.log(300*i);
+		//174900 pixels probably need over a million, will do math later 
 	}
 	
 	checkKeyDown();
@@ -30,10 +31,10 @@ function draw() {
 function checkKeyDown() {
 	if (keyIsDown(RIGHT_ARROW)) {
 		deltaSpeed = deltaSpeed +1 *2
+		//console.log(deltaSpeed);
 		ship.direction(1);
 	} 
 	if (keyIsDown(LEFT_ARROW)) {
 		deltaSpeed = deltaSpeed +1 *-2
-	
 	} 
 }
