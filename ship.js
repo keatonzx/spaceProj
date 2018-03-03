@@ -6,7 +6,7 @@ function Ship(){
 		this.x = this.x + this.xspeed*deltaSpeed;
 		//this.y = this.y + this.yspeed*deltaSpeed;
 
-		//this.x = constrain(this.x, 0, width-deltaSpeed);
+		this.x = constrain(this.x, -500, 100000000);
 		//this.y = constrain(this.y, 0, height-deltaSpeed);
 
 	}
