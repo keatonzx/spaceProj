@@ -14,18 +14,11 @@ function draw() {
 
 	ship.updateShip();
 	ship.showShip(10,10);
+	drawScale();
 
-	//fill(0);
-	//rect(100,height-50,1,50);
-	var count = 0;
 	// 2min :50 seconds
-	for (let i = 0; i < 2000; i++){
-		fill(0);
-		rect(100*i,height-50,1,50);
-		//count = count + 1;
-		count++;
+	
 
-	}
 	fill(255,0,0);
 	ellipse(-10,height/2,50,height);
 	ellipse(500,height/2,50,50);
@@ -49,4 +42,11 @@ function checkKeyDown() {
 		deltaSpeed = deltaSpeed +1 *-2
 		
 	} 
+}
+
+function drawScale(){
+	for (let i = 0; i < 2000; i++){
+		fill(0);
+		rect(100*i,height-50,1,50);
+	}
 }
