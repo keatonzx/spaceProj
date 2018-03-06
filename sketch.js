@@ -1,43 +1,52 @@
 var ship;
 var deltaSpeed = 0;
-var count = 0;
+var limit = 2000;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	ship = new Ship();
-
+	planet = new Planet();
 }
 
 function draw() {
-	//frameRate(10);
 	background(51);
-	
+
 	translate(-ship.x,0);
+
 	ship.updateShip();
 	ship.showShip(10,10);
+	ship.loopShip();
 	drawScale();
-	//console.log(ship.dist);
-	console.log(windowWidth);
-	console.log(ship.dist);
-	if(ship.dist >= 2 && ship.dist <= windowWidth){
-		console.log("hello");
-		drawPlanet(2);
-	}else if (ship.x > 2000) {
-		//ship.dist += ship.updateDist();
-		console.log(ship.dist);
-		ship.x = 100;
+
+	planet.drawPlanet(2,100,255,0,0);
+
+	if(ship.dist >=2 && ship.dist <windowWidth){
+	//	console.log("hello");
+		//drawPlanet(2);
 	}
+	
+
+	if(ship.dist > 3000 && ship.dist < 5001){
+		console.log("hello");
+		fill(255,0,0);
+		rect(windowWidth,height/2, 50,50);
+	}
+	//if(ship.dist > 10000 && ship.dist < 12000){
+		//console.log("hello");
+	//	fill(120,0,0);
+		//rect(windowWidth,height/2, 50,50);
+//	}
+	//console.log(count+"count");
 
 
 	checkKeyDown();
 }
 
-function drawPlanet(shipX){
+/*function drawPlanet(shipX){
 	fill(255);
 	ellipse(shipX+windowWidth,height/2,50,50);
-}
+}*/
 
-//var count = 0 ;
 function checkKeyDown() {
 	if (keyIsDown(RIGHT_ARROW)) {
 		if(deltaSpeed < 20)
