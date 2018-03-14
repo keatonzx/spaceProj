@@ -1,33 +1,38 @@
 function Ship(){
-	this.x = 1;
-	this.xspeed = 1;
+	this.x = 0;
+	this.xspeed = 0;
 	this.dist = 0;
+	this.dir = 0;
 
-	this.updateDist= function(){
-		return this.x;
-	}
-
+	
 	this.updateShip = function(){
-		console.log(this.x);
+		
 		this.x = this.x + this.xspeed*deltaSpeed;
 		this.dist = this.dist + this.xspeed*deltaSpeed;
-		this.x = constrain(this.x, -500,100000000);
+		
+		this.x = constrain(this.x, -0,100000000);
+		this.dist = constrain(this.dist, 0, 10000000);
 
 	}
 
 	this.showShip = function(x,y){
 		fill(180,0,180);
-		text(this.dist,this.x-deltaSpeed,200);
-		rect(this.x - deltaSpeed,height/2,x,y);
+		text(this.dist,this.x+100 ,200);
+		rect(this.x + 100 ,height/2,x,y);
 		}
 
-	this.direction = function(x){
-		this.xspeed = x;	
-	}	
 
 	this.loopShip = function(){
-		if (this.x > limit) {
-			this.x = 100;
+		if(this.dir > 0){
+			if (this.x > limit) {
+				this.x = 100;
+			}
+		}
+		if(this.dir < 0){
+			if(this.x < 5)
+				this.x = limit;
+			if(this.dist == 0)
+				this.x = 0;		
 		}
 	}
 }
