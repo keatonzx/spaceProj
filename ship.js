@@ -4,42 +4,32 @@ function Ship(){
 	this.dist = 0;
 	this.dir = 0;
 
-	
-	this.updateShip = function(){
-		
+	//updates the ships x value and distance value, the x value is between 0 and widowwidth+100
+	this.updateShip = function(){	
 		this.x = this.x + this.xspeed*deltaSpeed;
 		this.dist = this.dist + this.xspeed*deltaSpeed;
 		
 		this.x = constrain(this.x, -0,100000000);
 		this.dist = constrain(this.dist, 0, 10000000);
-
-		
-
 	}
 
-	this.showShip = function(x,y){
+	//shows distance on screen
+	this.showDist = function(){
 		fill(255);
 		text(this.dist + " KM" ,this.x+windowWidth/2-100 ,890);
-	//	rect(this.x+100 ,height/2,x,y);
 		}
 
-
+	//loops the ship to keep everything efficient
 	this.loopShip = function(){
-		
 		if(this.dir > 0){
 			if (this.x  > windowWidth+100) {
 				this.x = 0;
-				counter++;
-
 			}
 		}
 		if(this.dir < 0 ){
 			if(this.x <=1){
-				counter--;
-
 				this.x = windowWidth;
 			}
-				
 			if(this.dist == 0){
 				counter= 0;
 				this.x = 0;	
