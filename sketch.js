@@ -1,8 +1,10 @@
 var ship;
 var deltaSpeed = 0;
-var counter = 0;
-
+var pixelScale = 3474;
 var img;
+
+//1 pixel = 3474 km - this make the pixel the size of the moon
+
 function preload() {
   img = loadImage('rocket.png');
 }
@@ -11,54 +13,36 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	ship = new Ship();
 	planet = new Planet();
-
-	
-	
 }
 
 function draw() {
 	background(0);
 
-	//rotate(HALF_PI);
-	//image(img, 80, height/2);
+	//rotates the rocket image 
 	push();
+		translate(200, 200);
+		rotate(radians(90));
+		scale(0.5);
+		image(img, height/2, 100);
+	pop();
 
- 	translate(200, 200);
- 	rotate(radians(90));
- 	scale(0.5);
+	translate(-ship.x,0); // keeps the rocket the centre of attention
 
-  	image(img, height/2, 100);
+	planet.showPlanet(2000); //shows an arbitrary planet
 
-  pop();
-
-
-	translate(-ship.x,0);
-	//ellipse(windowWidth+50, height/2, 40,50);
-
-	
-	if(counter == 3 ){
-		ellipse(windowWidth, height/2, 40,40);
-	}
 	ship.updateShip();
-	ship.showShip(10,10);
+	ship.showDist();
 	ship.loopShip();
+
 	drawScale();
-
-	console.log(windowWidth + "width");
-	console.log(ship.x);
-	
-
-//	loop iterator to know what to do? 
-	console.log(counter+"count");
-	
 	checkKeyDown();
 }
 
-
+//checks for user input 
 function checkKeyDown() {
 	if (keyIsDown(RIGHT_ARROW)) {
 		ship.dir = 1;
-		if(deltaSpeed < 5)
+		if(deltaSpeed < 10)
 			deltaSpeed = deltaSpeed +1 *2;
 		ship.xspeed = 1;
 	} 
@@ -71,18 +55,12 @@ function checkKeyDown() {
 	} 
 }
 
-
+//draws a scale on the bottom
 function drawScale(){
-	
 	for (let i = 0; i < 30; i++){
-		fill(255,255,255);
-
-		//text(i,100*i,height-60);
-
 		fill(255);
 		noStroke();
 		rect(100*i,height-50,1,50);
-		
 		}
 }
 
