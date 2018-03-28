@@ -20,7 +20,7 @@ function Ship(){
 	this.showShip = function(x,y){
 		fill(255);
 		text(this.dist + " KM" ,this.x+windowWidth/2-100 ,890);
-		rect(this.x+100 ,height/2,x,y);
+	//	rect(this.x+100 ,height/2,x,y);
 		}
 
 
@@ -33,14 +33,18 @@ function Ship(){
 
 			}
 		}
-		if(this.dir < 0 && ship.dist != 0){
+		if(this.dir < 0 ){
 			if(this.x <=1){
-				this.x = windowWidth;
 				counter--;
+
+				this.x = windowWidth;
 			}
 				
-			if(this.dist == 0)
+			if(this.dist == 0){
+				counter= 0;
 				this.x = 0;	
+			}
+				
 		}
 	}
 }

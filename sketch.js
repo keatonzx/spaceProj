@@ -2,18 +2,38 @@ var ship;
 var deltaSpeed = 0;
 var counter = 0;
 
+var img;
+function preload() {
+  img = loadImage('rocket.png');
+}
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	ship = new Ship();
 	planet = new Planet();
 
+	
+	
 }
 
 function draw() {
 	background(0);
 
+	//rotate(HALF_PI);
+	//image(img, 80, height/2);
+	push();
+
+ 	translate(200, 200);
+ 	rotate(radians(90));
+ 	scale(0.5);
+
+  	image(img, height/2, 100);
+
+  pop();
+
+
 	translate(-ship.x,0);
-	ellipse(windowWidth+50, height/2, 40,50);
+	//ellipse(windowWidth+50, height/2, 40,50);
 
 	
 	if(counter == 3 ){
