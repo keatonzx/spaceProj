@@ -13,26 +13,34 @@ function Ship(){
 		this.x = constrain(this.x, -0,100000000);
 		this.dist = constrain(this.dist, 0, 10000000);
 
+		
+
 	}
 
 	this.showShip = function(x,y){
-		fill(180,0,180);
-		text(this.dist,this.x+100 ,200);
-		rect(this.x + 100 ,height/2,x,y);
+		fill(255);
+		text(this.dist + " KM" ,this.x+windowWidth/2-100 ,890);
+		rect(this.x+100 ,height/2,x,y);
 		}
 
 
 	this.loopShip = function(){
+		
 		if(this.dir > 0){
-			if (this.x > limit) {
-				this.x = 100;
+			if (this.x  > windowWidth+100) {
+				this.x = 0;
+				counter++;
+
 			}
 		}
-		if(this.dir < 0){
-			if(this.x < 5)
-				this.x = limit;
+		if(this.dir < 0 && ship.dist != 0){
+			if(this.x <=1){
+				this.x = windowWidth;
+				counter--;
+			}
+				
 			if(this.dist == 0)
-				this.x = 0;		
+				this.x = 0;	
 		}
 	}
 }
