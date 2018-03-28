@@ -1,7 +1,10 @@
 function Planet(){    
-    this.drawPlanet = function(shipX,diam,r,g,b){
-        fill(r,g,b);
-        ellipse(shipX+windowWidth+100,height/2,diam,diam);
+    //draws a planet
+    this.showPlanet = function(planet){
+        if(ship.dist >= planet-((windowWidth+100)-ship.x) && ship.dist <= planet +ship.x){
+            fill(255,0,0);
+            ellipse(windowWidth,100,100,100);
+        }
     }
-
 }
+
