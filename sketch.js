@@ -1,4 +1,5 @@
 var ship;
+var planet;
 var deltaSpeed = 0;
 var pixelScale = 3474;
 var img;
@@ -21,6 +22,7 @@ function draw() {
 	//rotates the rocket image 
 	push();
 		translate(200, 200);
+	
 		rotate(radians(90));
 		scale(0.5);
 		image(img, height/2, 100);
@@ -28,11 +30,15 @@ function draw() {
 
 	translate(-ship.x,0); // keeps the rocket the centre of attention
 
-	planet.showPlanet(2000); //shows an arbitrary planet
 
+	planet.showPlanet(1666,2,100,100,255,0,0);
+	planet.showPlanet(16666,9);
+	
 	ship.updateShip();
 	ship.showDist();
 	ship.loopShip();
+
+	text(ship.loop,ship.x, 400);
 
 	drawScale();
 	checkKeyDown();
@@ -40,9 +46,10 @@ function draw() {
 
 //checks for user input 
 function checkKeyDown() {
+	
 	if (keyIsDown(RIGHT_ARROW)) {
 		ship.dir = 1;
-		if(deltaSpeed < 10)
+		if(deltaSpeed < 20)
 			deltaSpeed = deltaSpeed +1 *2;
 		ship.xspeed = 1;
 	} 
@@ -54,10 +61,17 @@ function checkKeyDown() {
 		ship.xspeed = -1;
 	} 
 }
+function mouseClicked() {
+	if (deltaSpeed > 0) {
+	  deltaSpeed = 0;;
+	} else {
+	  deltaSpeed = 0;
+	}
+  }
 
 //draws a scale on the bottom
 function drawScale(){
-	for (let i = 0; i < 30; i++){
+	for (let i = 0; i < 40; i++){
 		fill(255);
 		noStroke();
 		rect(100*i,height-50,1,50);
