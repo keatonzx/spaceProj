@@ -20,6 +20,7 @@ function Ship(){
 	//shows distance on screen
 	this.showDist = function(){
 		fill(255);
+		textSize(12);
 		text(this.dist*3474 + " KM"+windowWidth ,this.x+windowWidth/2-100 ,890);
 		}
 

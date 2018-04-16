@@ -31,8 +31,16 @@ function draw() {
 	translate(-ship.x,0); // keeps the rocket the centre of attention
 
 
-	planet.showPlanet(1666,2,100,100,255,0,0);
-	planet.showPlanet(16666,9);
+	//planet.showPlanet(1666,2,100,100,255,0,0);
+	planet.showPlanet(16666,Math.floor(16666/windowWidth),2439*2,windowHeight/2,255,0,0,"Mercury");
+	planet.showPlanet(31148,Math.floor(31148/windowWidth),6051*2,windowHeight/2,255,165,0,"Venus");
+	planet.showPlanet(43062,Math.floor(43062/windowWidth),6371*2,windowHeight/2,0,191,255,"Earth");
+	planet.showPlanet(65614,Math.floor(65614/windowWidth),3389*2,windowHeight/2,255,69,0,"Mars");
+	planet.showPlanet(224047,Math.floor(224047/windowWidth),69911*2,windowHeight/2,255,160,122,"Jupiter");
+	planet.showPlanet(410669,Math.floor(410669/windowWidth),58232*2,windowHeight/2,234,214,184,"Saturn");
+	planet.showPlanet(826326,Math.floor(826326/windowWidth),25362*2,windowHeight/2,240,248,255,"Uranus");
+	planet.showPlanet(1286239,Math.floor(1286239/windowWidth),24622*2,windowHeight/2,30,144,255,"Neptune");
+	planet.showPlanet(2123180,Math.floor(2123180/windowWidth));
 	
 	ship.updateShip();
 	ship.showDist();
@@ -49,14 +57,14 @@ function checkKeyDown() {
 	
 	if (keyIsDown(RIGHT_ARROW)) {
 		ship.dir = 1;
-		if(deltaSpeed < 20)
+		if(deltaSpeed < 70)
 			deltaSpeed = deltaSpeed +1 *2;
 		ship.xspeed = 1;
 	} 
 
 	if (keyIsDown(LEFT_ARROW)) {
 		ship.dir = -1;
-		if(deltaSpeed <5)
+		if(deltaSpeed <70)
 			deltaSpeed = deltaSpeed +1 *(2);
 		ship.xspeed = -1;
 	} 
