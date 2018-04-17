@@ -29,8 +29,22 @@ function draw() {
 	pop();
 
 	translate(-ship.x,0); // keeps the rocket the centre of attention
-
-
+	if(ship.loop == 0){
+		fill(255);
+		textSize(20);
+		text("Welcome to the solar system, every pixel represents 3474Km (the size of Earth's moon!).", windowWidth/2-150, windowHeight/2+50);
+		text("Press and hold the arrow keys to speed up, don't worry you will slow down once you get near a planet.", windowWidth/2-150, windowHeight/2 +80);
+		deltaSpeed = 5;
+		fill(255,150,0);
+		ellipse(-50,windowHeight/2,1000,1500);
+	}
+	if(ship.loop == 1){
+		textSize(20);
+		text("This might take awhile...", windowWidth-100,windowHeight/2+50);
+		deltaSpeed = 5;
+	}
+	
+	//nofill();
 	//planet.showPlanet(1666,2,100,100,255,0,0);
 	planet.showPlanet(16666,Math.floor(16666/windowWidth),2439*2,windowHeight/2,255,0,0,"Mercury");
 	planet.showPlanet(31148,Math.floor(31148/windowWidth),6051*2,windowHeight/2,255,165,0,"Venus");
@@ -57,14 +71,14 @@ function checkKeyDown() {
 	
 	if (keyIsDown(RIGHT_ARROW)) {
 		ship.dir = 1;
-		if(deltaSpeed < 70)
+		if(deltaSpeed < 60)
 			deltaSpeed = deltaSpeed +1 *2;
 		ship.xspeed = 1;
 	} 
 
 	if (keyIsDown(LEFT_ARROW)) {
 		ship.dir = -1;
-		if(deltaSpeed <70)
+		if(deltaSpeed <60)
 			deltaSpeed = deltaSpeed +1 *(2);
 		ship.xspeed = -1;
 	} 
@@ -79,10 +93,14 @@ function mouseClicked() {
 
 //draws a scale on the bottom
 function drawScale(){
-	for (let i = 0; i < 40; i++){
+	//var x = windowWidth/
+	var x = windowWidth/40;
+	textSize(20);
+	text("The distance between each line represents "+ x*3474 + "Km", windowWidth/2-150,windowHeight/2+120);
+	for (let i = 0; i < 100; i++){
 		fill(255);
 		noStroke();
-		rect(100*i,height-50,1,50);
+		rect(x*i,height-50,1,50);
 		}
 }
 

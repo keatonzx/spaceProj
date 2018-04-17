@@ -8,7 +8,7 @@ function Ship(){
 	this.returnSX = function(){
 		return this.x;
 	}
-	//updates the ships x value and distance value, the x value is between 0 and widowwidth+100
+
 	this.updateShip = function(){	
 		this.x = this.x + this.xspeed*deltaSpeed;
 		this.dist = this.dist + this.xspeed*deltaSpeed;
@@ -21,7 +21,7 @@ function Ship(){
 	this.showDist = function(){
 		fill(255);
 		textSize(12);
-		text(this.dist*3474 + " KM"+windowWidth ,this.x+windowWidth/2-100 ,890);
+		text(this.dist*3474 + " KM", this.x+windowWidth/2-100 ,890);
 		}
 
 	//loops the ship to keep everything efficient
