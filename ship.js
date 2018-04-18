@@ -21,7 +21,8 @@ function Ship(){
 	this.showDist = function(){
 		fill(255);
 		textSize(12);
-		text(this.dist*3474 + " KM", this.x+windowWidth/2-100 ,890);
+		text("You are going "+this.xspeed*deltaSpeed*pixelScale*60+"Km/S",this.x+(windowWidth/2-140)-this.xspeed*deltaSpeed,windowHeight-120);
+		text(this.dist*3474 + " KM", this.x+(windowWidth/2-100)-this.xspeed*deltaSpeed,windowHeight-100);
 		}
 
 	//loops the ship to keep everything efficient
