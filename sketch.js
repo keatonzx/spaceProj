@@ -20,13 +20,26 @@ function draw() {
 	background(0);
 
 	//rotates the rocket image 
-	push();
-		translate(200, 200);
+	if(ship.dir >= 0){
+		push();
+		translate(800, 200);
 	
 		rotate(radians(90));
 		scale(0.5);
 		image(img, height/2, 100);
 	pop();
+	}
+	if(ship.dir < 0){
+		push();
+		translate(600, 750);
+	
+		rotate(radians(270));
+		scale(0.5);
+		image(img, height/2, 100);
+	pop();
+	}
+
+	
 
 	translate(-ship.x,0); // keeps the rocket the centre of attention
 	if(ship.loop == 0){
@@ -95,8 +108,11 @@ function mouseClicked() {
 function drawScale(){
 	//var x = windowWidth/
 	var x = windowWidth/40;
-	textSize(20);
-	text("The distance between each line represents "+ x*3474 + "Km", windowWidth/2-150,windowHeight/2+120);
+	if(ship.loop == 0){
+		textSize(20);
+		text("The distance between each line represents "+ x*3474 + "Km", windowWidth/2-150,windowHeight/2+120);
+	}
+	
 	for (let i = 0; i < 100; i++){
 		fill(255);
 		noStroke();
