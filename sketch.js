@@ -41,7 +41,7 @@ function draw() {
 	ship.updateShip();
 	ship.showDist();
 	ship.loopShip();
-	goButton();
+	//goButton();
 	drawScale(); //Draws a scale to see where you are 
 	checkKeyDown();	//Checks for input 
 	
