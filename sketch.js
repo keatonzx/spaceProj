@@ -25,25 +25,26 @@ function setup() {
 //MOONS OF EARTH AND JUPITER AND ASTEROID BELT AND FLAMES AND STOPPING 
 function draw() {
 	background(0);
+
 	//button to github
-	button = createButton('Source code on GitHub');
-	button.position(500, windowHeight/2+275);
-	button.mousePressed(openGit);
+	
+	
 
 	y = y + random(-1,1);//wiggles the fire
 	shipNFire(); //Rotation of the rocket ship image in each direction
 	translate(-ship.x,0); // keeps the rocket the centre of attention
 	introScreen(); //draws intor screen
 	drawPlanets(); //draws all the planets
-	 
+
+	
 	//The "game" loop 
 	ship.updateShip();
 	ship.showDist();
 	ship.loopShip();
-
+	goButton();
 	drawScale(); //Draws a scale to see where you are 
 	checkKeyDown();	//Checks for input 
-
+	
 }
 
 function openGit() {
@@ -167,3 +168,18 @@ function shipNFire(){
 	}
 }
 
+function goButton(){
+	if(ship.dist<=10){
+		var col = color(180);
+		button = createButton('For source code on GitHub, click here!');
+		button.style('background-color', col);
+		button.position(500,windowHeight/2+280);
+		button.mousePressed(openGit);
+	}
+	else if(ship.dist > 10){
+		noStroke();
+		var col2 = color(0);
+		button.style('background-color', col2)
+		button.style('border-color',col2);
+	}
+}
