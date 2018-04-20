@@ -13,8 +13,14 @@ function Planet(){
             ellipse(windowWidth,pHeight,pDiam/pixelScale,pDiam/pixelScale);
             textSize(32);
             text(planetName + " is about " + planet*pixelScale + " Km from the Sun",windowWidth+(pDiam/pixelScale)+50, windowHeight/2+100);
-
-            deltaSpeed = 5; //slows down speed once you get to a planet
+            textSize(12);
+            
+            if(keyIsDown(DOWN_ARROW)){
+                deltaSpeed = 0;
+            }
+           else {
+               deltaSpeed = 5; //slows down speed once you get to a planet
+           }
         }
     }
 }
