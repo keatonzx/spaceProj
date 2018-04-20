@@ -27,7 +27,7 @@ function draw() {
 	background(0);
 	button = createButton('Source code on GitHub');
 	button.position(500, windowHeight/2+275);
-	button.mousePressed(changeBG);
+	button.mousePressed(openGit);
 
 	y = y + random(-1,1);//wiggles the fire
 	shipNFire(); //Rotation of the rocket ship image in each direction
@@ -45,7 +45,7 @@ function draw() {
 
 }
 
-function changeBG() {
+function openGit() {
 	window.open("https://github.com/keatonzx/spaceProj");
   }
 //checks for user input 
