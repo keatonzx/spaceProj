@@ -22,13 +22,8 @@ function setup() {
 	y = height/2-11;
 }
 
-//MOONS OF EARTH AND JUPITER AND ASTEROID BELT AND FLAMES AND STOPPING 
 function draw() {
 	background(0);
-
-	//button to github
-	
-	
 
 	y = y + random(-1,1);//wiggles the fire
 	shipNFire(); //Rotation of the rocket ship image in each direction
@@ -36,20 +31,16 @@ function draw() {
 	introScreen(); //draws intor screen
 	drawPlanets(); //draws all the planets
 
-	
 	//The "game" loop 
 	ship.updateShip();
 	ship.showDist();
 	ship.loopShip();
-	//goButton();
+	
 	drawScale(); //Draws a scale to see where you are 
 	checkKeyDown();	//Checks for input 
-	
 }
 
-function openGit() {
-	window.open("https://github.com/keatonzx/spaceProj");
-  }
+
 //checks for user input 
 function checkKeyDown() {
 	
