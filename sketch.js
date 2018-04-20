@@ -20,11 +20,12 @@ function setup() {
 	ship = new Ship();
 	planet = new Planet();
 	y = height/2-11;
-	 //x = ship.x;
 }
+
 //MOONS OF EARTH AND JUPITER AND ASTEROID BELT AND FLAMES AND STOPPING 
 function draw() {
 	background(0);
+	//button to github
 	button = createButton('Source code on GitHub');
 	button.position(500, windowHeight/2+275);
 	button.mousePressed(openGit);
