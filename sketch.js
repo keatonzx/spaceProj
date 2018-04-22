@@ -136,7 +136,7 @@ function shipNFire(){
 			translate(600, 750);
 			rotate(radians(270));
 			scale(0.5);
-			image(imgF,height/2, 50);
+			image(imgF,y, 50);
 		pop();
 	}
 //for ship
