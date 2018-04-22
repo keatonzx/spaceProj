@@ -140,7 +140,7 @@ function shipNFire(){
 		pop();
 	}
 //for ship
-	if(ship.dir < 0){
+/*	if(ship.dir < 0){
 		push();
 			translate(600, 750);
 			rotate(radians(270));
@@ -156,7 +156,7 @@ function shipNFire(){
 			scale(0.5);
 			image(imgF,y,50);
 		pop();
-	}
+	}*/
 }
 
 function goButton(){
